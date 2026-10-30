@@ -15,6 +15,16 @@
   line-height: 1.1;
 }
 
+.featured-disclaimer {
+  color: #7a8580;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: right;
+  padding-top: 10px;
+}
+
 .featured-description {
   color: #777;
   font-size: 16px;
@@ -131,5 +141,11 @@
 
   .property-card:hover {
     transform: none;
+  }
+}
+@media (max-width: 575px) {
+  .featured-disclaimer {
+    text-align: center;
+    font-size: 11px;
   }
 }

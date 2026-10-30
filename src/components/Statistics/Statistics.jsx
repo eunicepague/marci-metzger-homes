@@ -4,9 +4,9 @@ import "./Statistics.css";
 const stats = [
   {
     icon: "/images/icons/sales.png",
-    value: 28.5,
+    value: 28,
     prefix: "$",
-    suffix: "M+",
+    suffix: ".5 M+",
     label: "Sales Volume",
   },
   {

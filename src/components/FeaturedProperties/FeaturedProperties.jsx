@@ -182,6 +182,10 @@ function FeaturedProperties() {
             </div>
           ))}
         </div>
+
+        <p className="featured-disclaimer mb-0">
+          *Sample listings shown for design demonstration purposes only.
+        </p>
       </div>
     </section>
   );
