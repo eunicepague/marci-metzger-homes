@@ -1,0 +1,29 @@
+.stat-icon {
+  height: 50px;
+  color: var(--accent);
+  font-size: 42px;
+  line-height: 1;
+}
+
+.stat-icon svg {
+  width: 55px;
+  height: 45px;
+}
+
+.stat-value {
+  color: var(--primary);
+  font-size: clamp(18px, 2vw, 26px);
+  font-family: var(--font-body);
+}
+
+.stat-label {
+  color: #87908d;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+@media (min-width: 992px) {
+  .stat-item:not(:last-child) {
+    border-right: 1px solid #dedbd5;
+  }
+}

@@ -1,0 +1,249 @@
+/* Section */
+.gallery-section {
+  background: var(--bgcolor);
+}
+
+.gallery-eyebrow {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.gallery-heading {
+  color: var(--primary);
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+}
+
+.gallery-description,
+.gallery-footer {
+  color: #66736f;
+  font-size: 15px;
+}
+
+/* Category Tabs */
+.gallery-tabs {
+  border-bottom: 1px solid #dce2df;
+  overflow-x: auto;
+}
+
+.gallery-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #66736f;
+  padding: 12px 4px;
+  white-space: nowrap;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.gallery-tab.active {
+  color: var(--secondary);
+  border-bottom-color: var(--secondary);
+  font-weight: 600;
+}
+
+.gallery-tab:hover {
+  color: var(--secondary);
+}
+
+/* Gallery Layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: clamp(190px, 22vw, 320px);
+  gap: 14px;
+}
+
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #e9eeeb;
+}
+
+.gallery-card-featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.04);
+}
+
+/* Bottom Image Gradient */
+.gallery-card::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+}
+
+/* Clickable Image Area */
+.gallery-open {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  z-index: 1;
+}
+
+/* Image Labels */
+.gallery-caption {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  z-index: 2;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+/* Expand Icon */
+.gallery-expand {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--secondary);
+  pointer-events: none;
+}
+
+/* View All Button */
+.gallery-view-all {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 3;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 16px;
+  background: #fff;
+  color: var(--secondary);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gallery-view-all:hover {
+  background: var(--secondary);
+  color: #fff;
+}
+
+/* Filtered View */
+.gallery-grid-filtered {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 260px;
+}
+
+/* Lightbox */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px;
+  color: #fff;
+}
+
+.gallery-lightbox-content {
+  max-width: 85vw;
+  text-align: center;
+}
+
+.gallery-lightbox-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: auto;
+}
+
+.gallery-close,
+.gallery-nav {
+  border: 0;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.gallery-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+}
+
+.gallery-close:hover,
+.gallery-nav:hover {
+  background: var(--secondary);
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .gallery-grid,
+  .gallery-grid-filtered {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 220px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+  .gallery-grid,
+  .gallery-grid-filtered {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 240px;
+  }
+
+  .gallery-card-featured {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .gallery-lightbox {
+    gap: 6px;
+    padding: 12px;
+  }
+
+  .gallery-nav {
+    width: 32px;
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-card img {
+    transition: none;
+  }
+
+  .gallery-card:hover img {
+    transform: none;
+  }
+}

@@ -1,0 +1,186 @@
+/* Section */
+.advantage-section {
+  --advantage-navy: #1d385e;
+  background: var(--background);
+}
+
+/* Section Heading */
+.advantage-eyebrow {
+  color: var(--secondary);
+  font-size: 12px;
+  letter-spacing: 2.5px;
+}
+
+.advantage-heading {
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+}
+
+.advantage-intro {
+  color: #66736f;
+  font-size: 15px;
+}
+
+/* Cards */
+.advantage-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 360px;
+  padding: 24px;
+  background: var(--white);
+  color: var(--primary);
+  border: 2px solid var(--advantage-navy);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(29, 56, 94, 0.06);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Left & Right - Navy Background */
+.advantage-card--filled {
+  background: var(--advantage-navy);
+  color: var(--white);
+}
+
+/* Middle - White */
+.advantage-card--light {
+  background: var(--white);
+  color: var(--primary);
+}
+
+/* Card Background Image */
+.advantage-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+
+  opacity: 1;
+  transition: opacity 0.45s ease;
+}
+
+/* Dark Overlay for Readability */
+.advantage-card--filled::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 28, 51, 0.45) 0%,
+    rgba(12, 28, 51, 0.15) 35%,
+    rgba(12, 28, 51, 0.88) 100%
+  );
+
+  transition: opacity 0.45s ease;
+}
+
+/* Keep Content Above Image */
+.advantage-tag,
+.advantage-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Card Content */
+.advantage-tag {
+  font-size: 13px;
+}
+
+.advantage-card-title {
+  color: inherit;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.2;
+}
+
+.advantage-description {
+  color: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Circular Arrow */
+.advantage-arrow {
+  width: 44px;
+  height: 44px;
+  background: var(--advantage-navy);
+  color: var(--white);
+  font-size: 18px;
+  text-decoration: none;
+
+  transition: transform 0.3s ease;
+}
+
+/* Left & Right Arrow */
+.advantage-card--filled .advantage-arrow {
+  background: var(--white);
+  color: var(--advantage-navy);
+}
+
+/* Hover Effects */
+.advantage-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(29, 56, 94, 0.18);
+}
+
+/* Hide Image on Hover - Reveal Navy */
+.advantage-card--filled:hover .advantage-card-image,
+.advantage-card--filled:focus-within .advantage-card-image {
+  opacity: 0;
+}
+
+.advantage-card--filled:hover::before,
+.advantage-card--filled:focus-within::before {
+  opacity: 0;
+}
+
+/* Arrow Movement */
+.advantage-card:hover .advantage-arrow {
+  transform: translate(3px, -3px);
+}
+
+.advantage-arrow:hover {
+  color: var(--white);
+}
+
+.advantage-card--filled .advantage-arrow:hover {
+  color: var(--advantage-navy);
+}
+
+/* Keyboard Accessibility */
+.advantage-arrow:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 767px) {
+  .advantage-card {
+    min-height: 300px;
+    padding: 20px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .advantage-card,
+  .advantage-card-image,
+  .advantage-card--filled::before,
+  .advantage-arrow {
+    transition: none;
+  }
+
+  .advantage-card:hover,
+  .advantage-card:hover .advantage-arrow {
+    transform: none;
+  }
+}

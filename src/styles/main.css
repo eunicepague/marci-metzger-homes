@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap");
+
+/* GLOBAL VARIABLES */
+
+:root {
+  --primary: #1a1a1a;
+  --secondary: #1b365d;
+  --accent: #1557c0;
+  /* --accent: #b45536; */
+  --bgcolor: #f5f4f2;
+  --white: #fff;
+  /* --background: #faf6ee; */
+
+  --font-heading: "Fraunces", serif;
+  --font-body: "DM Sans", sans-serif;
+}
+
+/* GLOBAL RESET */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--primary);
+  font-family: var(--font-body);
+}
+
+/* GLOBAL TYPOGRAPHY */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}

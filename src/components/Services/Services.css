@@ -1,0 +1,178 @@
+/* Section */
+.services-section {
+  background: var(--background);
+  --services-blue: #1d385e;
+}
+
+.services-heading {
+  color: var(--primary);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.services-intro {
+  color: var(--primary);
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.services-subtext {
+  color: var(--primary);
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+
+/* Cards */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 360px;
+  padding: 30px;
+  border: 2px solid var(--services-blue);
+  background: var(--white);
+  box-shadow: 0 6px 20px rgba(36, 59, 52, 0.06);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(29, 56, 94, 0.14);
+}
+
+/* Variant: blue default (middle card) */
+.service-card--filled {
+  background: var(--services-blue);
+  color: var(--white);
+}
+
+/* Variant: image cards */
+.service-card--image {
+  color: var(--white);
+}
+
+.service-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(10, 23, 44, 0.88),
+    rgba(10, 23, 44, 0.35) 55%,
+    rgba(10, 23, 44, 0.15)
+  );
+  transition: opacity 0.4s ease;
+}
+
+/* Hover image card -> turn blue */
+.service-card--image:hover .service-card-image,
+.service-card--image:hover .service-card-overlay {
+  opacity: 0;
+}
+
+.service-card--image:hover {
+  background: var(--services-blue);
+  color: var(--white);
+}
+
+/* Ensure content stays above image */
+.service-tag,
+.service-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Text */
+.service-tag {
+  font-size: 13px;
+  color: inherit;
+}
+
+.service-title {
+  color: inherit;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.2;
+}
+
+.service-description {
+  color: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* White text for image + filled card */
+.service-card--image .service-tag,
+.service-card--image .service-title,
+.service-card--image .service-description,
+.service-card--filled .service-tag,
+.service-card--filled .service-title,
+.service-card--filled .service-description {
+  color: var(--white);
+}
+
+/* Arrow */
+.service-arrow {
+  width: 44px;
+  height: 44px;
+  background: var(--services-blue);
+  color: var(--white);
+  font-size: 18px;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.service-card:hover .service-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* On blue/image cards, arrow is white */
+.service-card--filled .service-arrow,
+.service-card--image .service-arrow {
+  background: var(--white);
+  color: var(--services-blue);
+}
+
+/* Accessibility */
+.service-arrow:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .service-card {
+    min-height: 310px;
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-card-image,
+  .service-card-overlay,
+  .service-arrow {
+    transition: none;
+  }
+
+  .service-card:hover,
+  .service-card:hover .service-arrow {
+    transform: none;
+  }
+}
